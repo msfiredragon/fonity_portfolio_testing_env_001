@@ -11,21 +11,21 @@ interface DataCardProps {
 
 
 const DataCardSM = ({ title, image }: DataCardProps) => {
-  const hoverEffect = useRef<HTMLAudioElement | null>(null);
-  const [soundAllowed, setSoundAllowed] = useState(false);
+//   const hoverEffect = useRef<HTMLAudioElement | null>(null);
+//   const [soundAllowed, setSoundAllowed] = useState(false);
 
-  useEffect(() => {
-    const enableSound = () => setSoundAllowed(true);
-    document.addEventListener("click", enableSound);
-    return () => document.removeEventListener("click", enableSound);
-  }, []);
+//   useEffect(() => {
+//     const enableSound = () => setSoundAllowed(true);
+//     document.addEventListener("click", enableSound);
+//     return () => document.removeEventListener("click", enableSound);
+//   }, []);
 
-  const handleHover = () => {
-    if (soundAllowed || hoverEffect.current) {
-      hoverEffect.current.currentTime = 0;
-      hoverEffect.current.play();
-    }
-  };
+//   const handleHover = () => {
+//     if (soundAllowed || hoverEffect.current) {
+//       hoverEffect.current.currentTime = 0;
+//       hoverEffect.current.play();
+//     }
+//   };
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}
@@ -34,7 +34,7 @@ const DataCardSM = ({ title, image }: DataCardProps) => {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
       className="bg-white flex justify-center items-center w-[13rem] h-[13rem] rounded-[20px] cursor-pointer  transition-all"
-      onClick={handleHover}
+    //   onClick={handleHover}
     >
       <div className="flex flex-col justify-between gap-2 items-center">
         <h2 className="text-black text-[0.8rem] text-[1.3rem] font-semibold">
@@ -47,7 +47,7 @@ const DataCardSM = ({ title, image }: DataCardProps) => {
           height={80}
           alt="figma"
         />
-        <audio ref={hoverEffect} src={"/click.wav"} preload="auto" />
+        {/* <audio ref={hoverEffect} src={"/click.wav"} preload="auto" /> */}
       </div>
     </motion.div>
   );
